@@ -1,26 +1,44 @@
 @startuml
 
-abstract class AbstractList
-abstract AbstractCollection
-interface List
-interface Collection
-
-List <|-- AbstractList
-Collection <|-- AbstractCollection
-
-Collection <|- List
-AbstractCollection <|- AbstractList
-AbstractList <|-- ArrayList
-
-class ArrayList {
-Object[] elementData
-size()
+class Controller {
+  playButtonPress()
+  nextButtonPress()
+  prevButtonPress()
+  nextAlbum()
+  prevAlbum()
 }
 
-enum TimeUnit {
-DAYS
-HOURS
-MINUTES
+class Play {
+  play(speed)
+  pause()
+  stop()
+  next()
+  prev()
+  goto()
+  status()
 }
+
+class Album {
+  set()
+  get()
+  preload(firstSlide, lastSlide)
+}
+
+class Slide {
+  load()
+}
+
+class Photo {
+  load()
+}
+
+class Transition {
+}
+
+Controller "1..*" <|-- "1" Play
+Play "1" <|-- "1" Album
+Album "1" <|-- "*" Slide
+Slide "1" <|-- "*" Photo
+Slide "1" <|-- "*" Transition
 
 @enduml
