@@ -23,6 +23,7 @@
     "jquery": "~2.1.1",
     "requirejs": "~2.1.14",
     "backbone-amd": "~1.1.0",
-    "underscore-amd": "~1.5.2"
+    "underscore-amd": "~1.5.2",
+    "react": "~0.11.1"
   }
 }

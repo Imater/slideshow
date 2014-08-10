@@ -5,10 +5,42 @@ requirejs.config {
     "backbone": "../app/bower_components/backbone-amd/backbone"
 }
 
-define ['require', 'jquery', './models/Photo', 'views/app'], (require, $, Photo, AppView) ->
-  new AppView
+define [
+  'require'
+  'jquery'
+  'views/photo-view'
+  'models/photo-model'
+], (
+  require
+  $
+  PhotoView
+  PhotoModel
+) ->
+  photoItem = new PhotoModel {description: 'Hello, i am first photo!'}
+  photoView = new PhotoView { model: photoItem}
+  $('body').append photoView.render()
 
-  img1 = new Photo('https://s3-eu-west-1.amazonaws.com/minutta/2.jpg?'+Math.random() )
-  img1.load().then (img)->
-    $('body').append $(img).addClass 'photo'
-    img1.fadeOut()
+
+  photoItem = new PhotoModel {description: 'Hello, i am second photo!'}
+  photoView = new PhotoView { model: photoItem}
+  $('body').append photoView.render()
+
+  Timer = React.createClass {
+    getInitialState: () ->
+      elapsed: 0
+      start: new Date()
+    componentDidMount: () ->
+      @timer = setInterval(@tick, 10)
+    tick: () ->
+      @setState elapsed: @state.elapsed + 1
+    componentWillUnmount: () ->
+      clearInterval( @timer )
+    render: () ->
+      return React.DOM.p {}, [
+        'Seconds Elapsed: ' + @state.elapsed
+      ]
+  }
+
+  React.renderComponent Timer(), document.getElementById('photo-app')
+
+
