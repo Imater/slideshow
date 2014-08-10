@@ -27,13 +27,13 @@ define [
         photoItem = new PhotoModel { url: url }
         photoView = new PhotoView { model: photoItem }
         nextPhoto = $('#photo-app .next-photo');
-        nextPhoto.html(photoView.render().el).css('opacity', 0)
+        nextPhoto.css('opacity', 0).html(photoView.render().el)
         nextPhoto.velocity(properties: {opacity: '1'}, options: {duration: 2000})
         prevPhoto = $('#photo-app .prev-photo').css('opacity', 1)
-        prevPhoto.velocity(properties: {opacity: '0'}, options: {duration: 2000})
+        prevPhoto.velocity(properties: {opacity: '0'}, options: {duration: 3000})
         setTimeout ()->
-          prevPhoto.html photoView.render().$el.clone()
-        , 2000
+          prevPhoto.css('opacity', 0).html photoView.render().$el.clone()
+        , 3000
         setTimeout ()->
           cb()
         , 6000
