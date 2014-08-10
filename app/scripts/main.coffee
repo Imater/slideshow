@@ -6,6 +6,8 @@ requirejs.config {
     hbs: '/bower_components/require-handlebars-plugin/hbs'
     font: '/bower_components/'
     tmpl: '../tmpl'
+    async: '../bower_components/async/lib/async'
+    velocity: '../bower_components/velocity/jquery.velocity'
   hbs:
     helpers: true,            # default: true
     i18n: false,              # default: false

@@ -10,14 +10,9 @@ define [
 
     PhotoModel = Backbone.Model.extend {
       defaults: {
-        description: 'Fuck yeah!'
+        url: '/samples/03598_rockymountain_3840x2400.jpg'
+        name: ''
       }
-      initialize: (photo)->
-        @description = photo.description
-      get: ()->
-        @description
-      set: (photo)->
-        @description = photo.description if photo.description
 
     }
 

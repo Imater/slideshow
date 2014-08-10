@@ -1,9 +1,17 @@
+html {
+  height: 100%;
+  overflow: hidden;
+}
 body {
+  position: relative;
+  height: 100%;
+  width: 100%;
   background: #000;
   color: #FFF;
   padding: 0;
   margin: 0;
   font-family: Verdana;
+  overflow: hidden;
 }
 
 .photo {
@@ -15,7 +23,12 @@ body {
 }
 
 .top-menu {
-  background: #333;
+  position: absolute;
+  z-index: 1;
+  background: rgba(100,100,100, 0.5);
+  left: 0px;
+  right: 0px;
+
   padding: 5px;
   text-align: center;
   span {
@@ -46,22 +59,42 @@ body {
     transition: background-color @time linear;
 }
 
+.one-photo {
+  width: 100%;
+}
+
+.prev-photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.next-photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .toolbar {
+  position: absolute;
+  top: 200px;
+  left: 100px;
   .not_selectable;
   .round-button {
     .animate_background(50ms);
     margin-right: 10px;
-    border: 3px solid rgba(255,255,255,0.5);
+    border: 3px solid rgba(255,255,255,0.6);
     width: 50px;
     height: 50px;
     line-height: 50px;
     text-align: center;
     border-radius: 50%;
-    background: rgba(255,255,255,0.1);
+    background: rgba(100,100,100,0.5);
     cursor: pointer;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
     &:hover {
       .animate_background(300ms);
-      background: rgba(255,255,255,0.5);
+      background: rgba(100,100,100,0.9);
     }
     i {
       margin: 0;
