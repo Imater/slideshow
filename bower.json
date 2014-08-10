@@ -24,6 +24,8 @@
     "requirejs": "~2.1.14",
     "backbone-amd": "~1.1.0",
     "underscore-amd": "~1.5.2",
-    "react": "~0.11.1"
+    "react": "~0.11.1",
+    "require-handlebars-plugin": "~0.8.1",
+    "components-font-awesome": "~4.1.0"
   }
 }

@@ -1,6 +1,9 @@
 body {
   background: #000;
   color: #FFF;
+  padding: 0;
+  margin: 0;
+  font-family: Verdana;
 }
 
 .photo {
@@ -9,4 +12,60 @@ body {
 
 .text-center {
   text-align: center;
+}
+
+.top-menu {
+  background: #333;
+  padding: 5px;
+  text-align: center;
+  span {
+    color: #555;
+    margin-left: 50px;
+  }
+  a {
+    padding: 5px 20px;
+    font-style: normal;
+    color: #777;
+  }
+}
+
+.not_selectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.animate_background(@time: 500ms) {
+    -webkit-transition: background-color @time linear;
+    -moz-transition: background-color @time linear;
+    -o-transition: background-color @time linear;
+    -ms-transition: background-color @time linear;
+    transition: background-color @time linear;
+}
+
+.toolbar {
+  .not_selectable;
+  .round-button {
+    .animate_background(50ms);
+    margin-right: 10px;
+    border: 3px solid rgba(255,255,255,0.5);
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    cursor: pointer;
+    &:hover {
+      .animate_background(300ms);
+      background: rgba(255,255,255,0.5);
+    }
+    i {
+      margin: 0;
+      padding: 0;
+    }
+  }
 }

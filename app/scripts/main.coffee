@@ -1,46 +1,33 @@
 requirejs.config {
   "paths":
-    "jquery": "../app/bower_components/jquery/dist/jquery"
-    "underscore": "../app/bower_components/underscore-amd/underscore"
-    "backbone": "../app/bower_components/backbone-amd/backbone"
+    jquery: "/bower_components/jquery/dist/jquery"
+    underscore: "/bower_components/underscore-amd/underscore"
+    backbone: "/bower_components/backbone-amd/backbone"
+    hbs: '/bower_components/require-handlebars-plugin/hbs'
+    font: '/bower_components/'
+    tmpl: '../tmpl'
+  hbs:
+    helpers: true,            # default: true
+    i18n: false,              # default: false
+    templateExtension: 'hbs', # default: 'hbs'
+    partialsUrl: ''           # default: ''
 }
 
 define [
   'require'
   'jquery'
-  'views/photo-view'
-  'models/photo-model'
+  'backbone'
+  'router'
 ], (
   require
   $
-  PhotoView
-  PhotoModel
+  Backbone
+  Router
 ) ->
-  photoItem = new PhotoModel {description: 'Hello, i am first photo!'}
-  photoView = new PhotoView { model: photoItem}
-  $('body').append photoView.render()
+
+  new Router()
+  Backbone.history.start({pushState: false});
 
 
-  photoItem = new PhotoModel {description: 'Hello, i am second photo!'}
-  photoView = new PhotoView { model: photoItem}
-  $('body').append photoView.render()
-
-  Timer = React.createClass {
-    getInitialState: () ->
-      elapsed: 0
-      start: new Date()
-    componentDidMount: () ->
-      @timer = setInterval(@tick, 10)
-    tick: () ->
-      @setState elapsed: @state.elapsed + 1
-    componentWillUnmount: () ->
-      clearInterval( @timer )
-    render: () ->
-      return React.DOM.p {}, [
-        'Seconds Elapsed: ' + @state.elapsed
-      ]
-  }
-
-  React.renderComponent Timer(), document.getElementById('photo-app')
 
 
