@@ -1,4 +1,4 @@
 slideshow
 =========
 
-Slideshow
+Slideshow on CoffeeScript classes

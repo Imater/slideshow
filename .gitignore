@@ -1,1 +1,5 @@
-.idea/
+.idea
+app/bower_components
+app/**/*.js
+app/**/*.map
+app/**/*.css
