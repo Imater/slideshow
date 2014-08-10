@@ -1,4 +1,4 @@
-define ->
+define ['require', 'jquery'], (require, $) ->
   class Photo
     constructor: (url = '') ->
       @url = url
