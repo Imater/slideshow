@@ -12,6 +12,9 @@ define [
       defaults:
         isPlaying: false
         onPlay: undefined
+      stop: () ->
+        @set
+          isPlaying: false
 
       togglePlay: () ->
         if !@get('isPlaying')

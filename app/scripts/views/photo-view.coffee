@@ -2,7 +2,7 @@ define ['backbone'], (Backbone) ->
   PhotoView = Backbone.View.extend {
     initialize: () ->
     render: () ->
-      html = "<img class='one-photo' src='"+this.model.get('url') + "'>"
+      html = $(this.model.get('img')).addClass('one-photo')
       $(this.el).html(html)
       @
   }

@@ -10,3 +10,5 @@ define [
       $('#photo-app').html tmpl {date: new Date()}
 
     return MainCtrl
+
+    

@@ -128,6 +128,38 @@ define ->
           showDuration: 5000
           hideEffect: null
         }
+      ,
+        {
+          template: "twoPhoto"
+          images: [
+            {
+              url: "/samples/2874-8.jpg"
+              urlDraft: "/samples/draft/2874-8.jpg"
+            }
+          ,
+            {
+              url: "/samples/1664444.jpg"
+              urlDraft: "/samples/draft/1664444.jpg"
+            }
+          ,
+            {
+              template: "twoPhoto"
+              images: [
+                {
+                  url: "/samples/03616_mistymorningatberowacreek_3840x2400.jpg"
+                  urlDraft: "/samples/draft/03616_mistymorningatberowacreek_3840x2400.jpg"
+                }
+              ,
+                {
+                  url: "/samples/03622_walkonthebeach_3840x2400.jpg"
+                  urlDraft: "/samples/draft/03622_walkonthebeach_3840x2400.jpg"
+                }
+            }
+          ]
+          showEffect: ["fadeIn", "moveLeft"]
+          showDuration: 5000
+          hideEffect: ["fadeOut", "moveLeft"]
+        }
       ]
     }
   ]
