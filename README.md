@@ -1,4 +1,4 @@
 slideshow
 =========
 
-Slideshow on CoffeeScript classes
+Slideshow on Backbone + CoffeeScript + Async
