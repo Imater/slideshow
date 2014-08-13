@@ -4,10 +4,24 @@
     <meta charset="UTF-8">
     <title>SlideShow</title>
     <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" href="./bower_components/components-font-awesome/css/font-awesome.css" />
+    <!--<script data-main="./scripts/main" src="./bower_components/react/react-with-addons.js"></script>-->
+    <!--<script data-main="./scripts/main" src="./bower_components/react/JSXTransformer.js"></script>-->
 
 </head>
 <body>
-    <h2 class="text-center">SlideShow</h2>
+    <div class="top-menu">
+        <a href="/#!">Main</a>
+        <span>SlideShow: </span>
+        <a href="/#!/slideshow/1">1</a>
+        <a href="/#!/slideshow/2">2</a>
+        <a href="/#!/slideshow/3">3</a>
+        <div id="toolbar"></div>
+    </div>
+    <section id="photo-app">
+        <div class="prev-photo"></div>
+        <div class="next-photo"></div>
+    </section>
     <script data-main="./scripts/main" src="./bower_components/requirejs/require.js"></script>
 </body>
 </html>
