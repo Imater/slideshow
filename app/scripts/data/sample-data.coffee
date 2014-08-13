@@ -61,6 +61,46 @@ define ->
       url: "/samples/1636199.jpg"
     ]
   ]
+
+
+  SampleData = [
+    {
+      title: "Album1"
+      slides: [
+        {
+          template: "onePhoto"
+          images: [
+            {
+              url: "/samples/1821505.jpg"
+              urlDraft: "/samples/draft/1821505.jpg"
+            }
+          ]
+          showEffect: ["fadeIn"]
+          showDuration: null
+          hideEffect: null
+        }
+      ,
+        {
+          template: "twoPhoto"
+          images: [
+            {
+              url: "/samples/1636199.jpg"
+              urlDraft: "/samples/draft/1636199.jpg"
+            }
+          ,
+            {
+              url: "/samples/1634852.jpg"
+              urlDraft: "/samples/draft/1634852.jpg"
+            }
+          ]
+          showEffect: ["fadeIn", "moveLeft"]
+          showDuration: 5000
+          hideEffect: ["fadeOut", "moveLeft"]
+        }
+      ]
+    }
+  ]
+
   return SampleData
 
 
