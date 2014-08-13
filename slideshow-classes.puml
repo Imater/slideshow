@@ -1,0 +1,45 @@
+@startuml
+
+Class Controller {
+  playButtonPress()
+  nextButtonPress()
+  prevButtonPress()
+  nextAlbum()
+  prevAlbum()
+}
+
+Class Play {
+  play(speed)
+  pause()
+  stop()
+  next()
+  prev()
+  goto()
+  status()
+}
+
+Class Album {
+  set()
+  get()
+  preload(firstSlide, lastSlide)
+}
+
+Class Slide {
+  load()
+}
+
+Class Photo {
+  load()
+}
+
+Class Transition {
+}
+
+Controller "1..*" <-- "1" Play
+Play "1" o-- "1" Album
+Album "1" o-- "*" Slide
+Slide "1" o-- "*" Photo
+Slide "1" o-- "*" Transition
+
+@enduml
+

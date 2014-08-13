@@ -1,1 +1,8 @@
-.idea/
+.idea
+node_modules
+app/bower_components
+app/**/*.js
+app/**/*.map
+app/**/*.css
+**/*.log
+**/*.orig
