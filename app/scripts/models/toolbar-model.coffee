@@ -7,13 +7,21 @@ define [
   $
   Backbone
 ) ->
+
     ToolbarModel = Backbone.Model.extend {
       defaults:
-        isPlay: false
+        isPlaying: false
+        onPlay: undefined
+
       togglePlay: () ->
-        console.info @.get('isPlay')
-        @set
-          isPlay: !@.get('isPlay')
+        if !@get('isPlaying')
+          @set
+            isPlaying: true
+          @get('onPlay')()
+        else
+          @set
+            isPlaying: false
+
     }
 
     ToolbarModel

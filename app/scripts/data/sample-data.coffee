@@ -97,6 +97,37 @@ define ->
           showDuration: 5000
           hideEffect: ["fadeOut", "moveLeft"]
         }
+      ,
+        {
+          template: "twoPhoto"
+          images: [
+            {
+              url: "/samples/3084-11.jpg"
+              urlDraft: "/samples/draft/3084-11.jpg"
+            }
+          ,
+            {
+              url: "/samples/3054-11.jpg"
+              urlDraft: "/samples/draft/3054-11.jpg"
+            }
+          ]
+          showEffect: ["fadeIn", "moveLeft"]
+          showDuration: 5000
+          hideEffect: ["fadeOut", "moveLeft"]
+        }
+      ,
+        {
+          template: "onePhoto"
+          images: [
+            {
+              url: "/samples/03613_lonesometree_3840x2400.jpg"
+              urlDraft: "/samples/draft/03613_lonesometree_3840x2400.jpg"
+            }
+          ]
+          showEffect: ["fadeIn"]
+          showDuration: 5000
+          hideEffect: null
+        }
       ]
     }
   ]
