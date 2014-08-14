@@ -60,7 +60,7 @@ define [
     SlideShowCtrl
 
 
-    ###
+    ### i was here now
           url = slide.url
           photoItem = new PhotoModel { url: url }
           photoView = new PhotoView { model: photoItem }
