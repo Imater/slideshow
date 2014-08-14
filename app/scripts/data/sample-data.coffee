@@ -77,7 +77,7 @@ define ->
           ]
           showEffect: ["fadeIn"]
           showDuration: null
-          hideEffect: null
+          hideEffect: []
         }
       ,
         {
@@ -126,7 +126,7 @@ define ->
           ]
           showEffect: ["fadeIn"]
           showDuration: 5000
-          hideEffect: null
+          hideEffect: []
         }
       ,
         {

@@ -11,9 +11,11 @@ define [
     PhotoModel = Backbone.Model.extend {
       defaults: {
         url: '/samples/03598_rockymountain_3840x2400.jpg'
-        img: new Image()
+        img: null
         name: ''
       }
+      initialize: ->
+        @set 'img', new Image()
       load: () ->
         self = @
         console.time "imageLoadTime for #{self.get 'url'}"

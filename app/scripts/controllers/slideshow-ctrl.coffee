@@ -2,56 +2,57 @@ define [
     'jquery'
     'async'
     'velocity'
-    'views/photo-view'
-    'models/photo-model'
-    'views/toolbar-view'
+    'models/slide-model'
     'models/toolbar-model'
+    'views/photo-view'
+    'views/toolbar-view'
+    'views/slide-view'
     'data/sample-data'
 ],
   (
     $
     async
     velocity
-    PhotoView
-    PhotoModel
-    ToolbarView
+    SlideModel
     ToolbarModel
+    PhotoView
+    ToolbarView
+    SlideView
     sampleData
 ) ->
     SlideShowCtrl = (query)->
+      slideModels = []
 
       playSlideShow = () ->
-        albumIndex = parseInt(query) - 1
-        async.eachSeries sampleData[ albumIndex ].slides, (slide, cbSlide) ->
-          console.info 'slide = ', slide
-          async.eachSeries slide.images, (image, cbImage) ->
-            photoItem = new PhotoModel { url: image.url }
-            photoView = new PhotoView { model: photoItem }
-            nextPhoto = $('#photo-app .next-photo');
-            async.parallel [
-              (cbLoadImage) ->
-                photoItem.load().then ()->
-                  cbLoadImage()
-            ,
-              (cbTimer) ->
-                setTimeout () ->
-                  cbTimer()
-                , 8000
-            ], () ->
-              nextPhoto.css('opacity', 0).html(photoView.render().el)
-              nextPhoto.velocity(properties: {opacity: '1'}, options: {duration: 2000})
+        preloadImages()
+        async.eachSeries slideModels, (slideModel, cbNextSlide) ->
+          async.parallel [
+            (cbTimeout)->
+              setTimeout ->
+                cbTimeout()
+              , 5000
+          ,
+            (cbSlideLoaded)->
+              slideModel.get('onLoadDfd').then ()->
+                cbSlideLoaded()
+          ], () ->
+            console.info 'one slide has showed after timeout..', slideModel
+            cbNextSlide()
+        , ->
+          toolbarItem.stop()
+          console.info 'SlideShow finished'
 
-              prevPhoto = $('#photo-app .prev-photo').css('opacity', 1)
-              prevPhoto.velocity(properties: {opacity: '0'}, options: {duration: 2000})
-              setTimeout ()->
-                prevPhoto.css('opacity', 0).html photoView.render().$el.clone()
-              , 2500
+      preloadImages = () ->
+        slidesOfCurrentAlbumFromServer = sampleData[parseInt(query) - 1].slides
+        _.each slidesOfCurrentAlbumFromServer, (slide) ->
+          slideModel = new SlideModel( slide )
+          slideModels.push(slideModel)
 
-              cbImage()
-          , ()->
+        async.eachSeries slideModels, (slideModel, cbSlide) ->
+          slideModel.load().then ->
             cbSlide()
         , () ->
-          toolbarItem.stop()
+          console.info 'preload completed'
 
       toolbarItem = new ToolbarModel { onPlay: playSlideShow }
       toolbarView = new ToolbarView { model: toolbarItem }
