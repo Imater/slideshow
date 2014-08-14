@@ -25,7 +25,9 @@ define [
 
       playSlideShow = () ->
         preloadImages()
+        count = 0
         async.eachSeries slideModels, (slideModel, cbNextSlide) ->
+          console.time "show slide №#{count}"
           async.parallel [
             (cbTimeout)->
               setTimeout ->
@@ -36,7 +38,7 @@ define [
               slideModel.get('onLoadDfd').then ()->
                 cbSlideLoaded()
           ], () ->
-            console.info 'one slide has showed after timeout..', slideModel
+            console.timeEnd "show slide №#{count++}"
             cbNextSlide()
         , ->
           toolbarItem.stop()

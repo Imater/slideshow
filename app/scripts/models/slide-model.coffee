@@ -20,9 +20,11 @@ define [
       hideEffect: ['fadeOut']
       template: 'onePhoto'
     }
+
     initialize: ()->
       @set 'imageCollection', new Backbone.Collection [], { model: PhotoModel }
       @set 'onLoadDfd', new $.Deferred()
+
     load: ->
       self = @
       imageCollection = @get('imageCollection')

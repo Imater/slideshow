@@ -71,7 +71,7 @@ define ->
           template: "onePhoto"
           images: [
             {
-              url: "/samples/1821505.jpg"
+              url: "https://s3-eu-west-1.amazonaws.com/minutta/1.JPG"
               urlDraft: "/samples/draft/1821505.jpg"
             }
           ]
@@ -84,12 +84,12 @@ define ->
           template: "twoPhoto"
           images: [
             {
-              url: "/samples/1636199.jpg"
+              url: "https://s3-eu-west-1.amazonaws.com/minutta/9.JPG"
               urlDraft: "/samples/draft/1636199.jpg"
             }
           ,
             {
-              url: "/samples/1634852.jpg"
+              url: "https://s3-eu-west-1.amazonaws.com/minutta/3.JPG"
               urlDraft: "/samples/draft/1634852.jpg"
             }
           ]
@@ -133,27 +133,13 @@ define ->
           template: "twoPhoto"
           images: [
             {
-              url: "/samples/2874-8.jpg"
+              url: "https://s3-eu-west-1.amazonaws.com/minutta/7.JPG"
               urlDraft: "/samples/draft/2874-8.jpg"
             }
           ,
             {
-              url: "/samples/1664444.jpg"
+              url: "https://s3-eu-west-1.amazonaws.com/minutta/9.JPG"
               urlDraft: "/samples/draft/1664444.jpg"
-            }
-          ,
-            {
-              template: "twoPhoto"
-              images: [
-                {
-                  url: "/samples/03616_mistymorningatberowacreek_3840x2400.jpg"
-                  urlDraft: "/samples/draft/03616_mistymorningatberowacreek_3840x2400.jpg"
-                }
-              ,
-                {
-                  url: "/samples/03622_walkonthebeach_3840x2400.jpg"
-                  urlDraft: "/samples/draft/03622_walkonthebeach_3840x2400.jpg"
-                }
             }
           ]
           showEffect: ["fadeIn", "moveLeft"]
