@@ -71,7 +71,7 @@ define ->
           template: "onePhoto"
           images: [
             {
-              url: "https://s3-eu-west-1.amazonaws.com/minutta/1.JPG"
+              url: "https://s3-eu-west-1.amazonaws.com/minutta/images/1.JPG"
               urlDraft: "/samples/draft/1821505.jpg"
             }
           ]
@@ -84,12 +84,12 @@ define ->
           template: "twoPhoto"
           images: [
             {
-              url: "https://s3-eu-west-1.amazonaws.com/minutta/9.JPG"
+              url: "https://s3-eu-west-1.amazonaws.com/minutta/images/9.JPG"
               urlDraft: "/samples/draft/1636199.jpg"
             }
           ,
             {
-              url: "https://s3-eu-west-1.amazonaws.com/minutta/3.JPG"
+              url: "https://s3-eu-west-1.amazonaws.com/minutta/images/3.JPG"
               urlDraft: "/samples/draft/1634852.jpg"
             }
           ]
@@ -133,12 +133,12 @@ define ->
           template: "twoPhoto"
           images: [
             {
-              url: "https://s3-eu-west-1.amazonaws.com/minutta/7.JPG"
+              url: "https://s3-eu-west-1.amazonaws.com/minutta/images/7.JPG"
               urlDraft: "/samples/draft/2874-8.jpg"
             }
           ,
             {
-              url: "https://s3-eu-west-1.amazonaws.com/minutta/9.JPG"
+              url: "https://s3-eu-west-1.amazonaws.com/minutta/images/9.JPG"
               urlDraft: "/samples/draft/1664444.jpg"
             }
           ]

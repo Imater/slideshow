@@ -10,7 +10,11 @@ define [
     SlideView = Backbone.View.extend {
       initialize: () ->
       render: () ->
-        html = twoPhotoTmpl { images: ['first-photo', 'second-photo'] }
+        images = _.map this.model.get('imageCollection').models, (el,k) -> el.get('url')
+        switch images.length
+          when 1 then html = onePhotoTmpl { images: images }
+          when 2 then html = twoPhotoTmpl { images: images }
+
         $(this.el).html(html)
         @
     }

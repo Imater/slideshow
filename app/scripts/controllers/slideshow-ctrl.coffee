@@ -23,6 +23,16 @@ define [
     SlideShowCtrl = (query)->
       slideModels = []
 
+      showSlide = (slideModel)->
+        slideView = new SlideView { model: slideModel }
+        $('.next-photo').css('opacity', 0).html slideView.render().el
+        $('.next-photo').velocity(properties: {opacity: '1'}, options: {duration: 3000})
+        prevPhoto = $('.prev-photo').css('opacity', 1)
+        prevPhoto.velocity(properties: {opacity: '0'}, options: {duration: 3000})
+        setTimeout ()->
+          prevPhoto.css('opacity', 0).html slideView.render().$el.clone()
+        , 3000
+
       playSlideShow = () ->
         preloadImages()
         count = 0
@@ -30,21 +40,27 @@ define [
           console.time "show slide №#{count}"
           async.parallel [
             (cbTimeout)->
-              setTimeout ->
+              if count is 0
                 cbTimeout()
-              , 5000
+              else
+                setTimeout ->
+                  cbTimeout()
+                , 5000
           ,
             (cbSlideLoaded)->
               slideModel.get('onLoadDfd').then ()->
                 cbSlideLoaded()
           ], () ->
-            console.timeEnd "show slide №#{count++}"
-            cbNextSlide()
+            if toolbarItem.get('isPlaying')
+              count++
+              showSlide(slideModel)
+              cbNextSlide()
         , ->
           toolbarItem.stop()
           console.info 'SlideShow finished'
 
       preloadImages = () ->
+        slideModels = []
         slidesOfCurrentAlbumFromServer = sampleData[parseInt(query) - 1].slides
         _.each slidesOfCurrentAlbumFromServer, (slide) ->
           slideModel = new SlideModel( slide )
